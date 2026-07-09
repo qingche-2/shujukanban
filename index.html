@@ -8,7 +8,7 @@
 <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Microsoft YaHei','PingFang SC',sans-serif;background:#f0f2f5;color:#333;display:flex;min-height:100vh}
+body{font-family:'Microsoft YaHei','PingFang SC',sans-serif;background:linear-gradient(135deg,#e8edf5,#f0f4f8,#e3eaf3);color:#2c3e50;display:flex;min-height:100vh}
 .sidebar{width:220px;min-width:220px;background:linear-gradient(180deg,#0d1b3e,#1a2d5a);color:#fff;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;z-index:100;overflow-y:auto}
 .sidebar-logo{padding:20px 16px;border-bottom:1px solid rgba(255,255,255,.1)}
 .sidebar-logo h2{font-size:16px;font-weight:700}
@@ -21,90 +21,90 @@ body{font-family:'Microsoft YaHei','PingFang SC',sans-serif;background:#f0f2f5;c
 .nav-divider{margin:6px 16px;border-top:1px solid rgba(255,255,255,.08)}
 .nav-label{font-size:10px;letter-spacing:2px;color:rgba(255,255,255,.3);padding:4px 16px 2px}
 .main{flex:1;overflow-y:auto;display:flex;flex-direction:column}
-.header{background:#fff;padding:16px 28px;border-bottom:1px solid #e8e8e8;display:flex;justify-content:space-between;align-items:center}
+.header{background:#fff;padding:16px 28px;border-bottom:1px solid #e0e5ec;display:flex;justify-content:space-between;align-items:center}
 .header h1{font-size:19px;color:#1a237e}
-.header .meta{font-size:11px;color:#999}
+.header .meta{font-size:11px;color:#8899aa}
 .container{flex:1;padding:20px 24px;max-width:1360px}
 .page{display:none}.page.active{display:block}
 .module-title{font-size:16px;font-weight:600;color:#1a237e;margin-bottom:14px;padding-left:10px;border-left:4px solid #1a73e8}
-.filter-bar{background:#fff;border-radius:10px;padding:14px 18px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.04);border:1px solid #f0f0f0;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.filter-bar{background:#fff;border-radius:10px;padding:14px 18px;margin-bottom:14px;box-shadow:0 1px 6px rgba(0,0,0,.06);border:1px solid #e8ecf1;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .filter-bar .fl{font-size:13px;font-weight:600;color:#555;white-space:nowrap}
 .filter-bar .fg{display:flex;align-items:center;gap:5px}
-.filter-bar select,.filter-bar input{font-size:12px;padding:5px 9px;border:1px solid #d0d0d0;border-radius:6px;outline:none;background:#fff}
+.filter-bar select,.filter-bar input{font-size:12px;padding:5px 9px;border:1px solid #d0d0d0;border-radius:6px;outline:none;background:#fff;color:#333}
 .filter-bar .btn{padding:5px 14px;border:none;border-radius:6px;font-size:12px;cursor:pointer;font-weight:600;transition:all .15s}
 .filter-bar .btn-p{background:#1a73e8;color:#fff}.filter-bar .btn-p:hover{background:#1557b0}
-.filter-bar .btn-r{background:#f0f0f0;color:#666}
+.filter-bar .btn-r{background:#f0f0f0;color:#666}.filter-bar .btn-r:hover{background:#e0e0e0}
 .filter-bar .dv{width:1px;height:22px;background:#e0e0e0}
 .filter-bar .ainfo{font-size:11px;color:#1a73e8;margin-left:auto;font-weight:500}
 .month-check{display:flex;align-items:center;gap:3px;font-size:12px;cursor:pointer;user-select:none;padding:4px 7px;border-radius:4px;border:1px solid #e0e0e0;transition:all .12s}
 .month-check.on{background:#e8f0fe;border-color:#1a73e8;color:#1a73e8;font-weight:600}
 .month-check input{display:none}
 .kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-bottom:12px}
-.kpi-card{background:#fff;border-radius:8px;padding:14px 16px;box-shadow:0 1px 4px rgba(0,0,0,.04);border:1px solid #f0f0f0}
+.kpi-card{background:#fff;border-radius:8px;padding:14px 16px;box-shadow:0 1px 6px rgba(0,0,0,.06);border:1px solid #e8ecf1}
 .kpi-card .lb{font-size:11px;color:#999;margin-bottom:2px}
 .kpi-card .val{font-size:24px;font-weight:700;color:#1a73e8}
-.kpi-card .sub{font-size:10px;color:#bbb;margin-top:1px}
+.kpi-card .sub{font-size:10px;color:#aaa;margin-top:1px}
 .kpi-card.w .val{color:#e67e22}.kpi-card.g .val{color:#27ae60}
 .chart-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
 .chart-row.fl{grid-template-columns:1fr}
 .chart-row.th{grid-template-columns:1fr 1fr 1fr}
 .chart-row.fo{grid-template-columns:1fr 1fr 1fr 1fr}
-.chart-box{background:#fff;border-radius:8px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,.04);border:1px solid #f0f0f0}
+.chart-box{background:#fff;border-radius:8px;padding:14px;box-shadow:0 1px 6px rgba(0,0,0,.06);border:1px solid #e8ecf1}
 .chart-box h3{font-size:12px;color:#555;margin-bottom:6px;font-weight:600}
 .top5-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px}
-.top5-cell{background:#fff;border-radius:8px;padding:12px;box-shadow:0 1px 4px rgba(0,0,0,.04);border:1px solid #f0f0f0}
+.top5-cell{background:#fff;border-radius:8px;padding:12px;box-shadow:0 1px 6px rgba(0,0,0,.06);border:1px solid #e8ecf1}
 .top5-cell h4{font-size:12px;color:#1a237e;margin-bottom:4px;font-weight:600;text-align:center}
 .top5-rank{display:flex;align-items:center;gap:6px;padding:3px 0;font-size:10px}
 .top5-rank .rnk{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0;line-height:1}
-.top5-rank .rnm{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
+.top5-rank .rnm{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500;color:#333}
 .top5-rank .rval{font-weight:700;color:#1a73e8;flex-shrink:0;min-width:40px;text-align:right}
 .top5-rank .rbar{flex:1;height:5px;background:#e8edf5;border-radius:3px;overflow:hidden;min-width:30px}
 .top5-rank .rbar-fill{height:100%;border-radius:3px;transition:width .3s}
-.table-box{background:#fff;border-radius:8px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,.04);border:1px solid #f0f0f0;overflow-x:auto;margin-bottom:12px}
+.table-box{background:#fff;border-radius:8px;padding:14px;box-shadow:0 1px 6px rgba(0,0,0,.06);border:1px solid #e8ecf1;overflow-x:auto;margin-bottom:12px}
 .table-box h3{font-size:12px;color:#555;margin-bottom:6px}
 table{width:100%;border-collapse:collapse;font-size:11px}
-thead th{background:#f5f7fa;padding:6px 4px;text-align:center;font-weight:600;color:#777;border-bottom:2px solid #e0e0e0;white-space:nowrap}
-tbody td{padding:5px 4px;text-align:center;border-bottom:1px solid #f8f8f8}
-tbody tr:hover{background:#f8faff}
+thead th{background:#f5f7fa;padding:6px 4px;text-align:center;font-weight:600;color:#666;border-bottom:2px solid #e0e0e0;white-space:nowrap}
+tbody td{padding:5px 4px;text-align:center;border-bottom:1px solid #f0f0f0;color:#444}
+tbody tr:hover{background:#f5f8fc}
 .tg{color:#27ae60;font-weight:600}.tw{color:#e67e22;font-weight:600}
-.summary-box{background:#fff;border-radius:10px;padding:0;margin-bottom:12px;box-shadow:0 1px 6px rgba(0,0,0,.05);border:1px solid #e8e8e8;overflow:hidden}
+.summary-box{background:#fff;border-radius:10px;padding:0;margin-bottom:12px;box-shadow:0 1px 6px rgba(0,0,0,.06);border:1px solid #e8ecf1;overflow:hidden}
 .summary-box .sh{background:linear-gradient(135deg,#1a237e,#283593);color:#fff;padding:14px 20px;font-size:14px;font-weight:600}
-.summary-box .sb{padding:18px 20px;line-height:2;font-size:12px;color:#666}
+.summary-box .sb{padding:18px 20px;line-height:2;font-size:12px;color:#555}
 .sb .ib{margin-bottom:16px}.sb .ib:last-child{margin-bottom:0}
 .sb .ititle{font-size:13px;font-weight:600;color:#1a237e;margin-bottom:8px;display:flex;align-items:center;gap:6px}
 .sb .ititle .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
 .sb .ilist{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px}
-.sb .iitem{font-size:12px;line-height:1.7;padding:6px 10px;background:#f8faff;border-radius:6px;border:1px solid #eef1f6}
+.sb .iitem{font-size:12px;line-height:1.7;padding:6px 10px;background:#f5f8fc;border-radius:6px;border:1px solid #e8ecf1;color:#555}
 .plink{color:#1a73e8;font-weight:600;cursor:pointer}.plink:hover{text-decoration:underline}
-.person-summary{background:linear-gradient(135deg,#fefefe,#f7f9fc);border:1px solid #dde3ed;border-radius:10px;padding:20px 24px;margin-bottom:14px}
-.person-summary h3{font-size:14px;color:#1a237e;margin-bottom:10px;padding-bottom:7px;border-bottom:2px solid #e8edf5}
+.person-summary{background:linear-gradient(135deg,#fafbfc,#f0f4f8);border:1px solid #e0e5ec;border-radius:10px;padding:20px 24px;margin-bottom:14px}
+.person-summary h3{font-size:14px;color:#1a237e;margin-bottom:10px;padding-bottom:7px;border-bottom:2px solid #e0e5ec}
 .person-summary .psg{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px}
-.person-summary .psi{display:flex;align-items:flex-start;gap:8px;font-size:12px;line-height:1.7;padding:9px 12px;background:#fff;border-radius:8px;border:1px solid #eef1f6}
+.person-summary .psi{display:flex;align-items:flex-start;gap:8px;font-size:12px;line-height:1.7;padding:9px 12px;background:#fff;border-radius:8px;border:1px solid #eef1f6;color:#555}
 .person-summary .psi .ico{font-size:15px;flex-shrink:0;margin-top:2px}
 .person-summary .psi .txt{flex:1}
-.person-summary .psv{grid-column:1/-1;font-size:12px;text-align:center;padding:12px 18px;background:linear-gradient(135deg,#e8f0fe,#f0f4ff);border-radius:8px;border:1px solid #d0ddf5}
+.person-summary .psv{grid-column:1/-1;font-size:12px;text-align:center;padding:12px 18px;background:linear-gradient(135deg,#e8f0fe,#f0f4ff);border-radius:8px;border:1px solid #d0ddf5;color:#555}
 .search-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
-.search-input{padding:7px 12px;border:1px solid #d0d0d0;border-radius:6px;width:240px;font-size:13px;outline:none;transition:border .2s}
+.search-input{padding:7px 12px;border:1px solid #d0d0d0;border-radius:6px;width:240px;font-size:13px;outline:none;transition:border .2s;background:#fff;color:#333}
 .search-input:focus{border-color:#1a73e8;box-shadow:0 0 0 2px rgba(26,115,232,.1)}
 .pchip{display:inline-block;margin:3px 5px;padding:5px 12px;border:2px solid #1a73e8;border-radius:16px;cursor:pointer;font-size:11px;transition:all .15s;color:#1a73e8;background:#fff}
 .pchip:hover,.pchip.sel{background:#1a73e8;color:#fff}
-.select-box{padding:7px 12px;border:1px solid #d0d0d0;border-radius:6px;font-size:13px;outline:none;background:#fff;min-width:160px}
+.select-box{padding:7px 12px;border:1px solid #d0d0d0;border-radius:6px;font-size:13px;outline:none;background:#fff;color:#333;min-width:160px}
 .compare-toggle{display:flex;align-items:center;gap:8px;margin-left:8px;font-size:12px;cursor:pointer;user-select:none;color:#666}
 .compare-toggle.on{color:#1a73e8;font-weight:600}
 .compare-row{display:none;align-items:center;gap:10px;padding:10px 14px;background:#f8faff;border-radius:8px;border:1px solid #d8e3f8;margin-bottom:12px}
 .compare-row.show{display:flex}
 .compare-row .vs{font-size:18px;font-weight:700;color:#e67e22}
 .compare-kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-bottom:10px}
-.compare-kpi{background:#fff;border-radius:8px;padding:10px 12px;text-align:center;border:1px solid #f0f0f0}
-.compare-kpi .cv{font-size:20px;font-weight:700}
+.compare-kpi{background:#fff;border-radius:8px;padding:10px 12px;text-align:center;border:1px solid #e8ecf1}
+.compare-kpi .cv{font-size:20px;font-weight:700;color:#1a73e8}
 .compare-kpi .cl{font-size:10px;color:#999;margin-top:2px}
 .compare-kpi.a .cv{color:#1a73e8}.compare-kpi.b .cv{color:#e67e22}
 .stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:12px}
-.stat-item{background:#f8faff;border-radius:8px;padding:10px 12px;text-align:center;border:1px solid #e8edf5}
+.stat-item{background:#f5f8fc;border-radius:8px;padding:10px 12px;text-align:center;border:1px solid #e8ecf1}
 .stat-item .sv{font-size:20px;font-weight:700;color:#1a73e8}
 .stat-item .sl{font-size:10px;color:#999;margin-top:2px}
 .export-row{display:flex;gap:12px;margin-top:12px;overflow-x:auto;padding-bottom:8px}
-.export-card{background:#f8faff;border-radius:8px;padding:18px;border:1px solid #e0e8f5;text-align:center;min-width:200px;flex-shrink:0}
+.export-card{background:#fff;border-radius:8px;padding:18px;border:1px solid #e8ecf1;text-align:center;min-width:200px;flex-shrink:0}
 .export-card h4{margin-bottom:6px;color:#1a237e}
 .export-card p{font-size:11px;color:#999;margin-bottom:12px}
 @media(max-width:1100px){.top5-grid{grid-template-columns:repeat(2,1fr)}.chart-row.fo{grid-template-columns:1fr 1fr}.sb .ilist{grid-template-columns:1fr}}
@@ -311,12 +311,42 @@ rebuildMonthly();
 (function(){var inp=document.getElementById('personSearch'),chips=document.getElementById('personChips');inp.addEventListener('input',function(){var q=this.value.trim();if(!q){chips.innerHTML='';return}var m=PERSON_STATS.filter(function(p){return p.name.indexOf(q)>=0&&p.avgEff>0});if(!m.length){chips.innerHTML='<span style="font-size:11px;color:#999">未找到</span>';return}if(m.length>20){chips.innerHTML='<span style="font-size:11px;color:#999">匹配过多</span>';return}chips.innerHTML=m.map(function(p){return'<span class="pchip" data-name="'+p.name.replace(/"/g,'&quot;')+'">'+p.name+'</span>'}).join('');chips.querySelectorAll('.pchip').forEach(function(c){c.addEventListener('click',function(){chips.querySelectorAll('.pchip').forEach(function(x){x.classList.remove('sel')});this.classList.add('sel');document.getElementById('personSelect').value=this.dataset.name;showPerson(this.dataset.name)})})})})();
 var compareMode=false,personA=null,personB=null;document.getElementById('compareCheck').addEventListener('change',function(){compareMode=this.checked;document.getElementById('compareToggle').classList.toggle('on',compareMode);document.getElementById('compareRow').classList.toggle('show',compareMode);if(!compareMode){personB=null;document.getElementById('compareSelect').value=''}if(personA)showPerson(personA)});document.getElementById('compareSelect').addEventListener('change',function(){personB=this.value||null;if(personA)showPerson(personA)});document.getElementById('personSelect').addEventListener('change',function(){personA=this.value||null;if(personA)showPerson(personA)});
 function getMonthVals(name){return ALL_MONTHS.map(function(m){var r=(PERSON_MAP[name]||{})[m];return r||{name:name,eff:0,err:0,acc:0,score:0}})}
-function showPerson(name){personA=name;var ps=PERSON_STATS.find(function(p){return p.name===name});if(!ps)return;document.getElementById('personDetail').style.display='block';document.getElementById('compareLabelA').textContent=name;if(compareMode&&personB&&personB!==name){document.getElementById('compareLabelB').textContent=personB;document.getElementById('personDetail').innerHTML=buildCompareView(name,personB)}else{document.getElementById('compareLabelB').textContent='人员B';document.getElementById('personDetail').innerHTML=buildSingleView(name,ps)}setTimeout(function(){resizeAllCharts()},200)}
+function showPerson(name){personA=name;var ps=PERSON_STATS.find(function(p){return p.name===name});if(!ps)return;document.getElementById('personDetail').style.display='block';document.getElementById('compareLabelA').textContent=name;if(compareMode&&personB&&personB!==name){document.getElementById('compareLabelB').textContent=personB;document.getElementById('personDetail').innerHTML=buildCompareView(name,personB)}else{document.getElementById('compareLabelB').textContent='人员B';document.getElementById('personDetail').innerHTML=buildSingleView(name,ps)}setTimeout(function(){resizeAllCharts()},200);updatePersonSummary(name,ps)}
 function buildSingleView(name,ps){var mv=getMonthVals(name),rEff=RANK_EFF.indexOf(name)+1,above=ps.avgEff>OVERALL.avgEff,eGap=((ps.avgEff-OVERALL.avgEff)/OVERALL.avgEff*100),eV=mv.map(function(r){return r.eff}).filter(function(v){return v>0});function cv(vals){var a=vals.reduce(function(s,v){return s+v},0)/vals.length;if(a===0)return 0;var va=vals.reduce(function(s,v){return s+(v-a)*(v-a)},0)/vals.length;return Math.sqrt(va)/a}var eCV=cv(eV.filter(function(v){return v>0})),beM=ALL_MONTHS.reduce(function(a,b){var va=((PERSON_MAP[name]||{})[a]||{}).eff||0,vb=((PERSON_MAP[name]||{})[b]||{}).eff||0;return va>vb?a:b}),strs=[],wks=[];if(above&&eGap>10)strs.push('人效远超团队均值（+'+Math.round(eGap)+'%）');else if(above)strs.push('人效高于团队（+'+Math.round(eGap)+'%）');if(ps.avgAcc>0.998)strs.push('准确率顶尖');if(ps.trendEff>20)strs.push('人效持续上升');if(eCV<0.15&&ps.monthsWorked>=3)strs.push('表现非常稳定');if(!above)wks.push('人效低于团队均值');if(ps.avgScore<60)wks.push('考试偏低');if(!strs.length)strs.push('指标中等');if(!wks.length)wks.push('无明显短板');var h='<div class="person-summary"><h3>📝 '+name+' 分析汇总</h3><div class="psg"><div class="psi"><span class="ico">🏅</span><span class="txt">排名：人效第<b>'+rEff+'</b>/'+N_PEOPLE+' | 考试第<b>'+(RANK_SCORE.indexOf(name)+1)+'</b> | 准确率第<b>'+(RANK_ACC.indexOf(name)+1)+'</b></span></div><div class="psi"><span class="ico">📈</span><span class="txt">趋势：'+(ps.trendEff>=0?'<span class="tg">↑</span>':'<span class="tw">↓</span>')+fmtNum(Math.abs(ps.trendEff))+'件 | CV=<b class="'+(eCV<0.2?'tg':'tw')+'">'+(eCV*100).toFixed(0)+'%</b></span></div><div class="psi"><span class="ico">⚖️</span><span class="txt">团队对比：'+(above?'<span class="tg">高于</span>':'<span class="tw">低于</span>')+'均值'+Math.round(Math.abs(eGap))+'% | 最佳月<b>'+beM+'</b>（'+fmtNum(ps.maxEff)+'件）</span></div><div class="psi"><span class="ico">✅</span><span class="txt">优势：'+strs.join('；')+'</span></div><div class="psi"><span class="ico">⚠️</span><span class="txt">改进：'+wks.join('；')+'</span></div><div class="psv">人效排名第'+rEff+'名，在岗'+ps.monthsWorked+'月</div></div></div>';h+=buildPersonTable(name,ps,mv);h+=buildPersonCharts(name,mv);return h}
 function buildPersonTable(name,ps,mv){var bestM=ALL_MONTHS.reduce(function(a,b){var va=((PERSON_MAP[name]||{})[a]||{}).eff||0,vb=((PERSON_MAP[name]||{})[b]||{}).eff||0;return va>vb?a:b});return'<div class="table-box"><h3>📋 数据明细</h3><div class="stat-row">'+[{l:'平均人效',v:fmtNum(ps.avgEff)},{l:'最高人效('+bestM+')',v:fmtNum(ps.maxEff),c:'good'},{l:'平均准确率',v:fmtPct(ps.avgAcc)},{l:'平均考试分',v:fmtNum(ps.avgScore,1)},{l:'在岗月数',v:ps.monthsWorked+'/6'},{l:'平均失误',v:fmtNum(ps.avgErr,1)},{l:'人效趋势',v:(ps.trendEff>=0?'↑+':'↓')+fmtNum(Math.abs(ps.trendEff)),c:ps.trendEff>=0?'good':'warn'}].map(function(s){return'<div class="stat-item"><div class="sv'+(s.c?' t'+s.c:'')+'">'+s.v+'</div><div class="sl">'+s.l+'</div></div>'}).join('')+'</div><div style="overflow-x:auto"><table><thead><tr><th>指标</th>'+ALL_MONTHS.map(function(m){return'<th>'+m+'</th>'}).join('')+'<th>平均</th></tr></thead><tbody>'+['人效','失误','准确率','月考分数'].map(function(label,ri){var keys=['eff','err','acc','score'],key=keys[ri],vals=mv.map(function(r){return r[key]});var av=ri===2?ps.avgAcc:(ri===3?ps.avgScore:(ri===0?ps.avgEff:ps.avgErr));return'<tr><td style="font-weight:600">'+label+'</td>'+vals.map(function(v){return'<td>'+(ri===2?(v>0?fmtPct(v):'0.00%'):fmtNum(v,1))+'</td>'}).join('')+'<td style="font-weight:600">'+(ri===2?fmtPct(av):fmtNum(av,1))+'</td></tr>'}).join('')+'</tbody></table></div></div>'}
 function buildPersonCharts(name,mv){disposeCharts('chartP');var ids=['chartPEff','chartPErr','chartPAcc','chartPScore'],lbls=['人效(件)','失误(次)','准确率(%)','月考分数'],C=['#1a73e8','#e74c3c','#27ae60','#8e44ad'];var h='<div class="chart-row fo">';ids.forEach(function(id,i){h+='<div class="chart-box"><h3>'+lbls[i]+'</h3><div id="'+id+'" style="height:280px"></div></div>'});h+='</div>';setTimeout(function(){['eff','err','acc','score'].forEach(function(key,i){var vals=mv.map(function(r){return r[key]}),disp=i===2?vals.map(function(v){return v>0?(v*100).toFixed(2):0}):vals.map(function(v){return v});var yOpt=i===2?{type:'value',name:lbls[i],nameTextStyle:{fontSize:9},axisLabel:{fontSize:9},min:95,max:100}:{type:'value',name:lbls[i],nameTextStyle:{fontSize:9},axisLabel:{fontSize:9}};makeChart(ids[i],{tooltip:{trigger:'axis',textStyle:{fontSize:11}},xAxis:{type:'category',data:ALL_MONTHS,axisLabel:{fontSize:9}},yAxis:yOpt,series:[{name:lbls[i],type:'line',data:disp,smooth:true,symbol:'circle',symbolSize:6,lineStyle:{color:C[i],width:2},itemStyle:{color:C[i]},areaStyle:{color:new echarts.graphic.LinearGradient(0,0,0,1,[{offset:0,color:C[i]+'40'},{offset:1,color:C[i]+'05'}])},markPoint:{data:[{type:'max'},{type:'min'}],symbolSize:30,label:{fontSize:9}},markLine:{silent:true,data:[{type:'average'}],label:{fontSize:9},lineStyle:{type:'dotted'}}}],grid:{left:45,right:15,top:30,bottom:25}})})},150);return h}
-function buildCompareView(nameA,nameB){disposeCharts('cmp');var psA=PERSON_STATS.find(function(p){return p.name===nameA}),psB=PERSON_STATS.find(function(p){return p.name===nameB});if(!psA||!psB)return'<p>未找到</p>';var mvA=getMonthVals(nameA),mvB=getMonthVals(nameB);var h='<div class="person-summary"><h3>📝 对比：<span style="color:#1a73e8">'+nameA+'</span> VS <span style="color:#e67e22">'+nameB+'</span></h3><div class="compare-kpi-grid">';[{l:'人效排名',va:'#'+(RANK_EFF.indexOf(nameA)+1),vb:'#'+(RANK_EFF.indexOf(nameB)+1)},{l:'平均人效',va:fmtNum(psA.avgEff)+'件',vb:fmtNum(psB.avgEff)+'件'},{l:'平均准确率',va:fmtPct(psA.avgAcc),vb:fmtPct(psB.avgAcc)},{l:'平均考试分',va:fmtNum(psA.avgScore,1)+'分',vb:fmtNum(psB.avgScore,1)+'分'},{l:'平均失误',va:fmtNum(psA.avgErr,1)+'次',vb:fmtNum(psB.avgErr,1)+'次'}].forEach(function(k){h+='<div class="compare-kpi"><div class="cl">'+k.l+'</div><div style="display:flex;justify-content:center;align-items:center;gap:12px"><div class="cv a">'+k.va+'</div><span style="color:#ccc">vs</span><div class="cv b">'+k.vb+'</div></div></div>'});h+='</div></div><div class="chart-row"><div class="chart-box"><h3>📊 人效对比</h3><div id="cmpEff" style="height:340px"></div></div><div class="chart-box"><h3>🎯 准确率对比</h3><div id="cmpAcc" style="height:340px"></div></div></div>';setTimeout(function(){[{id:'cmpEff',key:'eff',u:'件'},{id:'cmpAcc',key:'acc',u:'%'}].forEach(function(c){var da=mvA.map(function(r){return c.key==='acc'&&r[c.key]>0?(r[c.key]*100).toFixed(2):r[c.key]}),db=mvB.map(function(r){return c.key==='acc'&&r[c.key]>0?(r[c.key]*100).toFixed(2):r[c.key]});makeChart(c.id,{tooltip:{trigger:'axis'},legend:{data:[nameA,nameB],top:0,textStyle:{fontSize:10}},xAxis:{type:'category',data:ALL_MONTHS},yAxis:c.key==='acc'?{type:'value',name:c.u,min:99,max:100}:{type:'value',name:c.u},series:[{name:nameA,type:'line',data:da,smooth:true,symbol:'circle',symbolSize:7,lineStyle:{color:'#1a73e8',width:2},itemStyle:{color:'#1a73e8'}},{name:nameB,type:'line',data:db,smooth:true,symbol:'diamond',symbolSize:7,lineStyle:{color:'#e67e22',width:2},itemStyle:{color:'#e67e22'}}],grid:{left:50,right:20,top:40,bottom:30}})})},150);return h}
-!function(){var t3=PERSON_STATS.filter(function(p){return p.avgEff>0}).sort(function(a,b){return b.avgEff-a.avgEff}).slice(0,3);document.getElementById('personSummary').innerHTML='<div class="sh">📌 个人分析总结</div><div class="sb">🔹 TOP3：<span style="color:#1a73e8;font-weight:600">'+t3.map(function(p){return p.name+'('+fmtNum(p.avgEff)+')'}).join('、')+'</span>。<br>🔹 选择人员查看详情，开启对比模式进行横向比较。</div>'}();
+function buildCompareView(nameA,nameB){disposeCharts('cmp');var psA=PERSON_STATS.find(function(p){return p.name===nameA}),psB=PERSON_STATS.find(function(p){return p.name===nameB});updateCompareSummary(nameA,nameB,psA,psB);if(!psA||!psB)return'<p>未找到</p>';var mvA=getMonthVals(nameA),mvB=getMonthVals(nameB);var h='<div class="person-summary"><h3>📝 对比：<span style="color:#1a73e8">'+nameA+'</span> VS <span style="color:#e67e22">'+nameB+'</span></h3><div class="compare-kpi-grid">';[{l:'人效排名',va:'#'+(RANK_EFF.indexOf(nameA)+1),vb:'#'+(RANK_EFF.indexOf(nameB)+1)},{l:'平均人效',va:fmtNum(psA.avgEff)+'件',vb:fmtNum(psB.avgEff)+'件'},{l:'平均准确率',va:fmtPct(psA.avgAcc),vb:fmtPct(psB.avgAcc)},{l:'平均考试分',va:fmtNum(psA.avgScore,1)+'分',vb:fmtNum(psB.avgScore,1)+'分'},{l:'平均失误',va:fmtNum(psA.avgErr,1)+'次',vb:fmtNum(psB.avgErr,1)+'次'}].forEach(function(k){h+='<div class="compare-kpi"><div class="cl">'+k.l+'</div><div style="display:flex;justify-content:center;align-items:center;gap:12px"><div class="cv a">'+k.va+'</div><span style="color:#ccc">vs</span><div class="cv b">'+k.vb+'</div></div></div>'});h+='</div></div><div class="chart-row"><div class="chart-box"><h3>📊 人效对比</h3><div id="cmpEff" style="height:340px"></div></div><div class="chart-box"><h3>🎯 准确率对比</h3><div id="cmpAcc" style="height:340px"></div></div></div>';setTimeout(function(){[{id:'cmpEff',key:'eff',u:'件'},{id:'cmpAcc',key:'acc',u:'%'}].forEach(function(c){var da=mvA.map(function(r){return c.key==='acc'&&r[c.key]>0?(r[c.key]*100).toFixed(2):r[c.key]}),db=mvB.map(function(r){return c.key==='acc'&&r[c.key]>0?(r[c.key]*100).toFixed(2):r[c.key]});makeChart(c.id,{tooltip:{trigger:'axis'},legend:{data:[nameA,nameB],top:0,textStyle:{fontSize:10}},xAxis:{type:'category',data:ALL_MONTHS},yAxis:c.key==='acc'?{type:'value',name:c.u,min:99,max:100}:{type:'value',name:c.u},series:[{name:nameA,type:'line',data:da,smooth:true,symbol:'circle',symbolSize:7,lineStyle:{color:'#1a73e8',width:2},itemStyle:{color:'#1a73e8'}},{name:nameB,type:'line',data:db,smooth:true,symbol:'diamond',symbolSize:7,lineStyle:{color:'#e67e22',width:2},itemStyle:{color:'#e67e22'}}],grid:{left:50,right:20,top:40,bottom:30}})})},150);return h}
+!function(){document.getElementById('personSummary').innerHTML='<div class="sh">📌 个人分析总结</div><div class="sb">请选择人员查看个人数据分析总结</div>'}();
+
+// ═══════ PERSON SUMMARY ═══════
+function updatePersonSummary(name,ps){
+  var rEff=RANK_EFF.indexOf(name)+1;
+  var above=ps.avgEff>OVERALL.avgEff;
+  var eGap=((ps.avgEff-OVERALL.avgEff)/OVERALL.avgEff*100);
+  var bestM=ALL_MONTHS.reduce(function(a,b){var va=((PERSON_MAP[name]||{})[a]||{}).eff||0,vb=((PERSON_MAP[name]||{})[b]||{}).eff||0;return va>vb?a:b});
+  var h='<div class="sh">📌 个人分析总结 — '+name+'</div><div class="sb">';
+  h+='🔹 人效排名：第 <b style="color:#1a73e8">'+rEff+'</b> / '+N_PEOPLE+' 名 | 平均人效：<b style="color:#1a73e8">'+fmtNum(ps.avgEff)+'</b> 件';
+  h+='（'+(above?'<span class="tg">高于':'<span class="tw">低于')+'团队均值'+Math.round(Math.abs(eGap))+'%</span>）<br>';
+  h+='🔹 平均准确率：<b style="color:#1a73e8">'+fmtPct(ps.avgAcc)+'</b> | 平均考试：<b style="color:#1a73e8">'+fmtNum(ps.avgScore,1)+'</b> 分 | 月均失误：<b>'+fmtNum(ps.avgErr,1)+'</b> 次<br>';
+  h+='🔹 人效趋势：'+(ps.trendEff>=0?'<span class="tg">↑ +'+fmtNum(ps.trendEff)+'</span>':'<span class="tw">↓ '+fmtNum(Math.abs(ps.trendEff))+'</span>')+'件 | 最高人效：<b>'+fmtNum(ps.maxEff)+'</b> 件（'+bestM+'）<br>';
+  h+='🔹 在岗 <b>'+ps.monthsWorked+'</b> 个月，考试最高 <b>'+fmtNum(ps.maxScore)+'</b> 分<br>';
+  if(ps.avgEff>200)h+='✅ 属于高产人员，建议萃取SOP经验推广<br>';
+  if(ps.avgScore>=90)h+='✅ 考试成绩优秀，理论与实操兼备<br>';
+  if(ps.trendEff>15)h+='🚀 人效稳步提升，成长潜力突出<br>';
+  if(ps.avgScore<60)h+='⚠️ 考试分数偏低，建议安排专项培训<br>';
+  if(ps.monthsWorked<=2)h+='🆕 新人观察期，建议设定3个月成长目标<br>';
+  h+='</div>';
+  document.getElementById('personSummary').innerHTML=h;
+}
+function updateCompareSummary(nameA,nameB,psA,psB){
+  var h='<div class="sh">📌 对比总结 — <span style="color:#1a73e8">'+nameA+'</span> VS <span style="color:#e67e22">'+nameB+'</span></div><div class="sb">';
+  h+='🔹 人效：'+nameA+' <b>'+fmtNum(psA.avgEff)+'</b> 件 vs '+nameB+' <b>'+fmtNum(psB.avgEff)+'</b> 件（差距 '+fmtNum(Math.abs(psA.avgEff-psB.avgEff))+' 件）<br>';
+  h+='🔹 准确率：'+nameA+' <b>'+fmtPct(psA.avgAcc)+'</b> vs '+nameB+' <b>'+fmtPct(psB.avgAcc)+'</b><br>';
+  h+='🔹 考试分：'+nameA+' <b>'+fmtNum(psA.avgScore,1)+'</b> vs '+nameB+' <b>'+fmtNum(psB.avgScore,1)+'</b><br>';
+  h+='🔹 失误：'+nameA+' <b>'+fmtNum(psA.avgErr,1)+'</b> 次/月 vs '+nameB+' <b>'+fmtNum(psB.avgErr,1)+'</b> 次/月<br>';
+  h+='</div>';
+  document.getElementById('personSummary').innerHTML=h;
+}
 
 // ═══════ PAGE 3: OVERALL ═══════
 !function(){var fPS=PERSON_STATS.filter(function(p){return EXC.indexOf(p.name)===-1});var fEff=fPS.filter(function(p){return p.avgEff>0}).map(function(p){return p.avgEff});var oAvgEff=fEff.length?fEff.reduce(function(a,b){return a+b},0)/fEff.length:0;var oMaxEff=fEff.length?Math.max.apply(null,fEff):0;var oMinEff=fEff.filter(function(v){return v>10}).length?Math.min.apply(null,fEff.filter(function(v){return v>10})):0;document.getElementById('overallKpi').innerHTML=[{l:'初审员工数',v:fPS.length,s:'不含修复/品控/抽检'},{l:'初审人效均值',v:fmtNum(oAvgEff),s:'最高'+fmtNum(oMaxEff)+' / 最低'+fmtNum(oMinEff)},{l:'初审准确率',v:fmtPct(fPS.filter(function(p){return p.avgAcc>0}).reduce(function(s,p){return s+p.avgAcc},0)/fPS.filter(function(p){return p.avgAcc>0}).length),s:'均值'},{l:'初审考试均分',v:fmtNum(fPS.filter(function(p){return p.avgScore>0}).reduce(function(s,p){return s+p.avgScore},0)/fPS.filter(function(p){return p.avgScore>0}).length,1),s:'分'},{l:'初审月均失误',v:fmtNum(fPS.filter(function(p){return p.avgErr>=0}).reduce(function(s,p){return s+p.avgErr},0)/fPS.filter(function(p){return p.avgErr>=0}).length,1),s:'次/人·月'}].map(function(k){return'<div class="kpi-card"><div class="lb">'+k.l+'</div><div class="val">'+k.v+'</div><div class="sub">'+k.s+'</div></div>'}).join('');document.getElementById('overallSummary').innerHTML='<div class="sh">📌 整体数据总结（初审人员）</div><div class="sb">🔹 初审团队共 <span style="color:#1a73e8;font-weight:600">'+fPS.length+'</span> 人。<br>🔹 人效均值 <span style="color:#1a73e8;font-weight:600">'+fmtNum(oAvgEff)+'</span> 件，>200高产 <span style="color:#1a73e8;font-weight:600">'+fPS.filter(function(p){return p.avgEff>200}).length+'</span> 人。<br>🔹 建议：低分人员定制培训、高产SOP推广、特殊岗位独立考核。</div>'}();
